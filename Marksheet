@@ -1,0 +1,29 @@
+
+eng = int (input("Enter your English marks:"))
+math = int (input("Enter your Math marks:"))
+urdu=int(input("Enter your Urdu marks:"))
+phy=int(input("Enter your Physics marks:"))
+chem=int(input("Enter your Chemistry marks:"))
+
+obt = eng + math + urdu + phy + chem
+total=500
+
+print("Total marks:",total)
+print("Obtained marks:", obt)
+
+per=obt/total*100
+print("Your percentage is:",per)
+
+if per>=90:
+    print("Your Grade is A+")
+elif per>=70:
+    print("Your Grade is A")
+elif per >=60:
+    print("Your Grade is B")
+elif per >=50:
+    print("Your Grade is C")
+elif per >= 40:
+    print("Your Grade is D")
+else:
+    print("Your are Fail")
+    
