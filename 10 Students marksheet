@@ -1,0 +1,60 @@
+import random
+
+# Function to calculate grade based on percentage
+def calculate_grade(percentage):
+    if percentage >= 90:
+        return 'A+'
+    elif 80 <= percentage < 90:
+        return 'A'
+    elif 70 <= percentage < 80:
+        return 'B'
+    elif 60 <= percentage < 70:
+        return 'C'
+    else:
+        return 'D'
+
+# Generate marks for each student
+def generate_marks():
+    return [random.randint(0, 100) for _ in range(5)]
+
+# Calculate total obtained marks and percentage
+def calculate_stats(marks):
+    total_marks = sum(marks)
+    percentage = (total_marks / 500) * 100
+    return total_marks, percentage
+
+# Generate details for each student
+def generate_student_details():
+    students = []
+    for i in range(1, 11):
+        name = f"Student-{i}"
+        roll_number = f"R00{i}"
+        marks = generate_marks()
+        total_marks, percentage = calculate_stats(marks)
+        grade = calculate_grade(percentage)
+        student = {
+            'Name': name,
+            'Roll Number': roll_number,
+            'Marks': marks,
+            'Obtained Marks': total_marks,
+            'Percentage': percentage,
+            'Grade': grade
+        }
+        students.append(student)
+    return students
+
+# Display student details
+def display_students(students):
+    for student in students:
+        print(f"Name: {student['Name']}")
+        print(f"Roll Number: {student['Roll Number']}")
+        print(f"Marks: {student['Marks']}")
+        print(f"Obtained Marks: {student['Obtained Marks']}")
+        print(f"Percentage: {student['Percentage']:.2f}%")
+        print(f"Grade: {student['Grade']}\n")
+
+# Generate student details
+students = generate_student_details()
+
+# Display student details
+display_students(students)
